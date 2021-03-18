@@ -1,11 +1,21 @@
 ﻿using TechTalk.SpecFlow;
 using FluentAssertions;
 
-namespace LetsSee.Test
+namespace LetsSee.spec.Steps
 {
-    public class Bindings
+    [Binding]
+    public sealed class CalculatorStepDefinitions
     {
         Calculator calculator = new Calculator();
+
+        // For additional details on SpecFlow step definitions see https://go.specflow.org/doc-stepdef
+
+        private readonly ScenarioContext _scenarioContext;
+
+        public CalculatorStepDefinitions(ScenarioContext scenarioContext)
+        {
+            _scenarioContext = scenarioContext;
+        }
 
         [Given(@"I have entered (.*) into the calculator")]
         public void GivenIHaveEnteredIntoTheCalculator(int number)
@@ -33,4 +43,3 @@ namespace LetsSee.Test
         }
     }
 }
-
